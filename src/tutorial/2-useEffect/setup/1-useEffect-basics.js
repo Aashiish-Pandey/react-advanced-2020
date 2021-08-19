@@ -5,7 +5,7 @@ const UseEffectBasics = () => {
   useEffect(() => {
     console.log("use effect");
     document.title = `ashish ${count}`
-  });
+  },[]);
   console.log("render component");
   return (
     <div>
