@@ -1,9 +1,19 @@
-import React, { useState, useEffect } from 'react';
-// by default runs after every re-render
-// cleanup function
-// second parameter
+import React, { useState, useEffect } from "react";
 const UseEffectBasics = () => {
-  return <h2>useEffect Basics</h2>;
+  const [count, setCount] = useState(0);
+  const [count1, setCount1] = useState(0);
+  useEffect(() => {
+    console.log("use effect");
+    document.title = `ashish ${count}`
+  });
+  console.log("render component");
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={() => setCount(count + 1)}>click me</button>
+      );
+    </div>
+  );
 };
 
 export default UseEffectBasics;
