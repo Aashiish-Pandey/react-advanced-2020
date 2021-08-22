@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
 const ShowHide = () => {
-  return <h2>show/hide</h2>;
-};
+
+  const[isError,setIsError] = useState(false)
+  return(
+
+    <div>
+      <button className ="btn" onClick ={()=>setIsError(!isError)}>show/hide</button>
+      {isError && <h1>Error....</h1>}
+    </div>
+  )
+}
 
 export default ShowHide;
