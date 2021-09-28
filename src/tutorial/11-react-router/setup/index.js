@@ -11,7 +11,10 @@ import Person from "./Person";
 import Navbar from "./Navbar";
 const ReactRouterSetup = () => {
   return (
+
     <Router>
+      <Navbar/>
+     
       <Switch>
       <Route path="/" exact>
         <Home />
