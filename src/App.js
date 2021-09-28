@@ -1,7 +1,6 @@
 import React from "react";
-import Setup from "./tutorial/10-prop-types/setup";
+import Setup from "./tutorial/11-react-router/setup";
 
-// import Final from "./tutorial/7-prop-drilling/final/1-prop-drilling";
 function App() {
   return (
     <div className="container">
