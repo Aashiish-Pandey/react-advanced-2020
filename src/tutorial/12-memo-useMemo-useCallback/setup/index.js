@@ -10,6 +10,12 @@ const url = "https://course-api.com/javascript-store-products";
 const Index = () => {
   const { products } = useFetch(url);
   const [count, setCount] = useState(0);
+  const[cart,setCart]= useState(0)
+
+  const addToCart = useCallback(()=> {
+
+    setCart(cart+1)
+  },[cart])
 
   return (
     <>
@@ -17,25 +23,27 @@ const Index = () => {
       <button className="btn" onClick={() => setCount(count + 1)}>
         click me
       </button>
-      <BigList products={products} />
+
+      <h1 style ={{marginTop: '3rem'}}>cart : {cart}</h1>
+      <BigList products={products} addToCart ={addToCart}/>
     </>
   );
 };
 
-const BigList = React.memo(({ products }) => {
+const BigList = React.memo(({ products,addToCart }) => {
   useEffect(() => {
     console.log("Big list called");
   });
   return (
     <section className="products">
       {products.map((product) => {
-        return <SingleProduct key={product.id} {...product}></SingleProduct>;
+        return <SingleProduct key={product.id} {...product} addToCart ={addToCart}></SingleProduct>;
       })}
     </section>
   );
 });
 
-const SingleProduct = ({ fields }) => {
+const SingleProduct = ({ fields,addToCart }) => {
 
   useEffect(() => {
     console.log("single item called");
@@ -49,6 +57,7 @@ const SingleProduct = ({ fields }) => {
       <img src={image} alt={name} />
       <h4>{name}</h4>
       <p>${price}</p>
+      <button className ="btn" onClick ={addToCart}>add to cart</button>
     </article>
   );
 };
